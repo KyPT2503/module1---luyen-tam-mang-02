@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<input type="text" id="digit-count" onchange="digit_count()" placeholder="digit count">
+<input type="text" id="word_count" onchange="word_count()" placeholder="word_count"><br><br>
+<input type="text" id="string_first" placeholder="first string">
+<input type="text" id="string_second" placeholder="second string" onchange="compare()">
+<body>
+<script>
+    function digit_count()
+    {
+        let count=0;
+        let str=document.getElementById('digit-count').value;
+        for(let character of str)
+        {
+            if(character==+character) count+=1;
+        }
+        document.write(count);
+    }
+    function word_count()
+    {
+        let count=1;
+        let str=document.getElementById('word_count').value;
+        for(let i=1;i<str.length-1;i++)
+        {
+            if(str[i]==' '&&str[i-1]!=' '&&str[i+1]!=' ') count+=1;
+        }
+        document.write(count);
+    }
+    /*compare 2 strings*/
+    function compare()
+    {
+        if(document.getElementById('string_first').value.localeCompare(document.getElementById('string_second').value)=='0')
+        {
+            document.write('Same string !');
+        }
+        else document.write('Not the same !');
+    }
+</script>
+</body>
+</html>
